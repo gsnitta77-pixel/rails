@@ -1,6 +1,6 @@
 volumes:
   mysql_data:
-    driver: local
+  bundle:
 networks:
   local-dev:    
 services:
@@ -18,18 +18,7 @@ services:
       - type: bind
         source: ./service
         target: /service
-    depends_on:
-      - db
-    tty: true
-  db:
-    image: mysql:8.3
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-    ports:
-      - '3306:3306'
-    networks:
-      - local-dev
-    volumes:
       - type: bind
-        source: "mysql_data"
-        target: "/var/lib/mysql"
+        source: bundle
+        target: /usr/local/bundle
+    tty: true
