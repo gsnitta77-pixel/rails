@@ -1,6 +1,5 @@
 volumes:
   mysql_data:
-  bundle:
 networks:
   local-dev:    
 services:
@@ -18,6 +17,3 @@ services:
       - type: bind
         source: ./service
         target: /service
-      - type: bind
-        source: bundle
-        target: /usr/local/bundle
