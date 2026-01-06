@@ -2,7 +2,7 @@ FROM ruby:3.3
 
 WORKDIR /service
 
-COPY Gemfile /service/
+COPY GemfileApp /service/Gemfile
 RUN bundle install
 
 # コンテナ起動時に実行させるentrypoint.shを追加
